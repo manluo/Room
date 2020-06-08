@@ -20,11 +20,14 @@ public interface BaseDao<T> {
     Completable insert(T... ts);
 
     //删
-    @Delete
+    @Delete()
     Completable delete(T... ts);
 
     //改
-    @Update
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     Completable update(T... ts);
 
+    //改
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    void updateNoRx(T... ts);
 }

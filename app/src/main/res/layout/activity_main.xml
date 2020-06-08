@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.04" />
 
-    <TextView
+    <Button
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,19 +39,19 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="49dp" />
 
-    <TextView
+    <Button
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="修改数据"
         android:layout_marginTop="10dp"
-
+        android:onClick="updateData"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="84dp" />
 
-    <TextView
+    <Button
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
         tools:layout_editor_absoluteY="120dp" />
 
 
-    <TextView
+    <Button
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

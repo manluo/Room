@@ -103,4 +103,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void updateData(View view) {
+        Log.w(TAG, "===>updateData" + Thread.currentThread());
+        rxCompositeDisposable.addAsyncDisposable(UserDatabase.getInstance(this).getUserDao().getUserById(4), new RxSingleObserver<User>() {
+            @Override
+            public void onSuccess(User user) {
+                Log.w(TAG, "===>当前线程" + Thread.currentThread() + user.toString());
+                user.setAge(90);
+                /**
+                 rxCompositeDisposable.addDisposable(UserDatabase.getInstance(MainActivity.this).getUserDao().update(user), new Action() {
+                @Override public void run() throws Exception {
+
+                }
+                });
+                 */
+                UserDatabase.getInstance(MainActivity.this).getUserDao().updateNoRx(user);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.w(TAG, "===>当前线程" + Thread.currentThread());
+            }
+        });
+    }
 }

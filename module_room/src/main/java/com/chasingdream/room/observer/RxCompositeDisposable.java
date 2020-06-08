@@ -58,6 +58,7 @@ public class RxCompositeDisposable {
 
     /**
      * 添加到生命周期
+     *
      * @param single
      * @param singleObserver
      * @param <T>
@@ -66,6 +67,19 @@ public class RxCompositeDisposable {
         single
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(getSingleSubscribe(singleObserver));
+    }
+
+    /**
+     * 异步回调
+     * @param single
+     * @param singleObserver
+     * @param <T>
+     */
+    public <T> void addAsyncDisposable(Single<T> single, RxSingleObserver<T> singleObserver) {
+        single
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
                 .subscribeWith(getSingleSubscribe(singleObserver));
     }
 
@@ -103,7 +117,7 @@ public class RxCompositeDisposable {
             @Override
             public void onSuccess(T t) {
                 Log.w(TAG, "===>onSuccess");
-                if (singleObserver!=null){
+                if (singleObserver != null) {
                     singleObserver.onSuccess(t);
                 }
             }
@@ -111,7 +125,7 @@ public class RxCompositeDisposable {
             @Override
             public void onError(Throwable e) {
                 Log.w(TAG, "===>onError");
-                if (singleObserver!=null){
+                if (singleObserver != null) {
                     singleObserver.onError(e);
                 }
             }
