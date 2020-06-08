@@ -23,6 +23,9 @@ public interface BaseDao<T> {
     @Delete()
     Completable delete(T... ts);
 
+    @Delete()
+    void deleteNoRx(T... ts);
+
     //改
     @Update(onConflict = OnConflictStrategy.REPLACE)
     Completable update(T... ts);

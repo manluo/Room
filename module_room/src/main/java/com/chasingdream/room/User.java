@@ -11,6 +11,7 @@ public class User {
     private int id;
     private String name;
     private int age;
+    private String likeAnima; //喜欢
  
     public User(String name, int age) {
         this.name = name;
@@ -45,12 +46,21 @@ public class User {
         this.age = age;
     }
 
+    public String getLikeAnima() {
+        return likeAnima;
+    }
+
+    public void setLikeAnima(String likeAnima) {
+        this.likeAnima = likeAnima;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
+                ", likeAnima='" + likeAnima + '\'' +
                 '}';
     }
 }
