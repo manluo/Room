@@ -10,6 +10,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 /**
  * 升级：ps https://www.jianshu.com/p/fda33acb7515
+ * https://www.cnblogs.com/best-hym/p/12259615.html
  */
 //                    表名         数据库版本     不添加会警告
 @Database(entities = {User.class,Book.class}, version = 3, exportSchema = true)
